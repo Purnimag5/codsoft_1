@@ -16,7 +16,7 @@ public class NumberGameGUI extends JFrame {
     private JTextArea messageArea;
 
     public NumberGameGUI() {
-        setTitle("🎯 Number Guessing Game");
+        setTitle(" Number Guessing Game");
         setSize(450, 350);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
@@ -84,13 +84,13 @@ public class NumberGameGUI extends JFrame {
             } else if (guess > randomNumber) {
                 messageArea.append("Attempt " + attempts + ": " + guess + " → Too high!\n");
             } else {
-                messageArea.append("✅ Correct! You guessed in " + attempts + " attempts.\n");
+                messageArea.append(" Correct! You guessed in " + attempts + " attempts.\n");
                 endGame(true);
                 return;
             }
 
             if (attempts >= maxAttempts) {
-                messageArea.append("❌ No more attempts! The number was " + randomNumber + ".\n");
+                messageArea.append(" No more attempts! The number was " + randomNumber + ".\n");
                 endGame(false);
             }
 
@@ -104,7 +104,7 @@ public class NumberGameGUI extends JFrame {
     private void endGame(boolean guessedCorrectly) {
         int score = guessedCorrectly ? 100 - (attempts - 1) * 10 : 0;
         score = Math.max(score, 0);
-        messageArea.append("🎯 Your score: " + score + "\n");
+        messageArea.append(" Your score: " + score + "\n");
 
         guessField.setEnabled(false);
         guessButton.setEnabled(false);
@@ -115,3 +115,4 @@ public class NumberGameGUI extends JFrame {
         SwingUtilities.invokeLater(() -> new NumberGameGUI().setVisible(true));
     }
 }
+
